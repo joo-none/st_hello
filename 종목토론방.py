@@ -81,7 +81,7 @@ def 종목토론_목록_내용링크_내용(item_code, last_page):
 
 item_code = '086520'
 last_page = 1
-st.dataframe(종목토론_목록_내용링크_내용(item_code, last_page))
+st.dataframe(목록_내용링크(item_code, last_page))
 
 
 

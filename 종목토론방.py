@@ -62,22 +62,22 @@ def 목록_내용링크(item_code, last_page):
     a.columns = ['날짜', '제목', '글쓴이', '조회', '공감', '비공감', '내용링크']
     return a
 
-# 내용을 수집하는 함수
-def 종목토론_내용(item_code, last_page):
-    content = []
-    df = 목록_내용링크(item_code, last_page)
-    for i in df['내용링크']:
-        headers = {"user-agent": "Mozilla/5.0"}
-        response = requests.get(i, headers=headers)
-        html = BeautifulSoup(response.text)
-        a = html.select('#body')[0].text
-        content.append(a)        
-    return content
+# # 내용을 수집하는 함수
+# def 종목토론_내용(item_code, last_page):
+#     content = []
+#     df = 목록_내용링크(item_code, last_page)
+#     for i in df['내용링크']:
+#         headers = {"user-agent": "Mozilla/5.0"}
+#         response = requests.get(i, headers=headers)
+#         html = BeautifulSoup(response.text)
+#         a = html.select('#body')[0].text
+#         content.append(a)        
+#     return content
 
-def 종목토론_목록_내용링크_내용(item_code, last_page):
-    df = 목록_내용링크(item_code, last_page)
-    df['내용'] = 종목토론_내용(item_code, last_page)
-    return df
+# def 종목토론_목록_내용링크_내용(item_code, last_page):
+#     df = 목록_내용링크(item_code, last_page)
+#     df['내용'] = 종목토론_내용(item_code, last_page)
+#     return df
 
 item_code = '086520'
 last_page = 1
